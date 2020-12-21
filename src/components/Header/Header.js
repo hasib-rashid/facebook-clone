@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import './Header.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../firebase';
 import { ReactComponent as MessengerIcon } from './icons/messenger.svg';
 import { ReactComponent as CogIcon } from './icons/cog.svg';
 import { ReactComponent as ChevronIcon } from './icons/chevron.svg';
@@ -22,8 +23,6 @@ import SignOut from "../SignOut/SignOut";
 
 //* Rendered App
 function Header() {
-	const [user] = useAuthState();
-
 	return (
 		<div className="Header">
 
