@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
+// eslint-disable-next-line
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 firebase.initializeApp({
