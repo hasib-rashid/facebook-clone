@@ -17,12 +17,9 @@ import SupervisedUserCircleRoundedIcon from '@material-ui/icons/SupervisedUserCi
 import DehazeRoundedIcon from '@material-ui/icons/DehazeRounded';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import SignOut from "../SignOut/SignOut";
-import { useStateValue } from '../../StateProvider';
 
 //* Rendered App
 function Header() {
-	const [{ user }] = useStateValue();
-
 	return (
 		<div className="Header">
 
@@ -58,7 +55,7 @@ function Header() {
 			<div className="header__right">
 
 				<div className="header__info">
-					<Avatar src={user.photoURL} className="avatar" />
+					<Avatar src="" className="avatar" />
 				</div>
 
 				<Navbar>
