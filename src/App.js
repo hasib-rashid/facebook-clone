@@ -4,14 +4,14 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import './firebase';
 import { auth } from './firebase';
 import SignIn from './components/SignIn/SignIn';
-import SignOut from "./components/SignOut/SignOut";
+import FrontPage from './components/FrontPage/FrontPage';
 
 function App() {
 	const [user] = useAuthState(auth);
 
 	return (
 		<div className="App">
-			{user ? <SignOut /> : <SignIn /> }
+			{user ? <FrontPage /> : <SignIn /> }
 		</div>
 	);
 }

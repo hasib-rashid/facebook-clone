@@ -15,6 +15,8 @@ import HomeIcon from '@material-ui/icons/Home';
 import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import SupervisedUserCircleRoundedIcon from '@material-ui/icons/SupervisedUserCircleRounded';
 import DehazeRoundedIcon from '@material-ui/icons/DehazeRounded';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import SignOut from "../SignOut/SignOut";
 
 
 //* Rendered App
@@ -142,8 +144,16 @@ return (
 				<DropdownItem
 					leftIcon="🦧"
 					rightIcon={<ChevronIcon />}
-					goToMenu="animals">
+					goToMenu="animals"
+				>
 					Animals
+				</DropdownItem>
+
+				<DropdownItem 
+					leftIcon={<ExitToAppIcon />}
+					onClick={<SignOut />}
+				>
+					<SignOut />
 				</DropdownItem>
 
 				</div>
