@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import './Header.css';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { ReactComponent as MessengerIcon } from './icons/messenger.svg';
 import { ReactComponent as CogIcon } from './icons/cog.svg';
 import { ReactComponent as ChevronIcon } from './icons/chevron.svg';
@@ -20,8 +21,9 @@ import SignOut from "../SignOut/SignOut";
 
 
 //* Rendered App
+function Header() {
+	const [user] = useAuthState();
 
-function App() {
 	return (
 		<div className="Header">
 
@@ -57,7 +59,7 @@ function App() {
 			<div className="header__right">
 
 				<div className="header__info">
-					<Avatar src="https://www.w3schools.com/howto/img_avatar.png" className="avatar" />
+					<Avatar src="" className="avatar" />
 				</div>
 
 				<Navbar>
@@ -134,28 +136,28 @@ return (
 				unmountOnExit
 				onEnter={calcHeight}>
 				<div className="menu">
-				<DropdownItem>My Profile</DropdownItem>
-				<DropdownItem
-					leftIcon={<CogIcon />}
-					rightIcon={<ChevronIcon />}
-					goToMenu="settings">
-					Settings
-				</DropdownItem>
-				<DropdownItem
-					leftIcon="🦧"
-					rightIcon={<ChevronIcon />}
-					goToMenu="animals"
-				>
-					Animals
-				</DropdownItem>
+					<DropdownItem>My Profile</DropdownItem>
+					<DropdownItem
+						leftIcon={<CogIcon />}
+						rightIcon={<ChevronIcon />}
+						goToMenu="settings">
+						Settings
+					</DropdownItem>
+					<DropdownItem
+						leftIcon="🦧"
+						rightIcon={<ChevronIcon />}
+						goToMenu="animals"
+					>
+						Animals
+					</DropdownItem>
 
-				<DropdownItem 
-					leftIcon={<ExitToAppIcon />}
-					onClick={<SignOut />}
-				>
-					<SignOut />
-				</DropdownItem>
-
+					<DropdownItem
+						leftIcon={<ExitToAppIcon />}
+						onClick={SignOut}
+					>
+						<SignOut className="sign-out-btn" />
+					</DropdownItem>
+					
 				</div>
 			</CSSTransition>
 
@@ -196,4 +198,4 @@ return (
 	);
 }
 
-export default App;
+export default Header;
