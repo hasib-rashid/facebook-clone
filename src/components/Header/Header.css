@@ -221,3 +221,7 @@ a {
     transform: translateX(110%);
     transition: all 500ms ease;
 }
+
+.main_name{
+    font-size: 17px;
+}

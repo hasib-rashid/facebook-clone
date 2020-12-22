@@ -131,6 +131,7 @@ function DropdownItem(props) {
 
 const [user] = useAuthState(auth)
 
+const user_name = (user.displayName)
 const user_photo = (user.photoURL)
 
 return (
@@ -143,7 +144,9 @@ return (
 				onEnter={calcHeight}>
 				<div className="menu">
 					<DropdownItem leftIcon={<Avatar src={user_photo} className="avatar" />} >
-						My Profile
+						<header>
+							{user_name}
+						</header>
 					</DropdownItem>
 					<DropdownItem
 						leftIcon={<CogIcon />}
