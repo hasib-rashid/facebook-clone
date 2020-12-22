@@ -17,12 +17,19 @@ import SupervisedUserCircleRoundedIcon from '@material-ui/icons/SupervisedUserCi
 import DehazeRoundedIcon from '@material-ui/icons/DehazeRounded';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import SignOut from "../SignOut/SignOut";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import '../../firebase';
+import { auth } from '../../firebase';
 
 //* Rendered App
 function Header() {
+
+	const [user] = useAuthState(auth);
+
+	const user_photo = (user.photoURL)
+	
 	return (
 		<div className="Header">
-
 			<div className="header__left">
 				<div className="header__logo">
 					<img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Logo" />
@@ -55,7 +62,7 @@ function Header() {
 			<div className="header__right">
 
 				<div className="header__info">
-					<Avatar src="" className="avatar" />
+					<Avatar src={user_photo} className="avatar" />
 				</div>
 
 				<Navbar>
@@ -122,9 +129,12 @@ function DropdownItem(props) {
 	);
 }
 
+const [user] = useAuthState(auth)
+
+const user_photo = (user.photoURL)
+
 return (
 	<div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
-
 			<CSSTransition
 				in={activeMenu === 'main'}
 				timeout={500}
@@ -132,7 +142,9 @@ return (
 				unmountOnExit
 				onEnter={calcHeight}>
 				<div className="menu">
-					<DropdownItem>My Profile</DropdownItem>
+					<DropdownItem leftIcon={<Avatar src={user_photo} className="avatar" />} >
+						My Profile
+					</DropdownItem>
 					<DropdownItem
 						leftIcon={<CogIcon />}
 						rightIcon={<ChevronIcon />}
