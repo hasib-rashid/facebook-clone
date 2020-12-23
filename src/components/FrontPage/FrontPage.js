@@ -1,4 +1,5 @@
 import React from 'react';
+import './FrontPage.css';
 import Header from "../Header/Header";
 import Sidebar from '../Sidebar/Sidebar';
 

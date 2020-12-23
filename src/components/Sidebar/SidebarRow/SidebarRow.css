@@ -1,3 +1,25 @@
 .SidebarRow{
     display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.SidebarRow:hover{
+    background-color: #e0e0e0;
+    border-radius: 15px;
+}
+
+.SidebarRow h4{
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.Avatar{
+    transform: scale(0.8);
+}
+
+.SidebarRow svg{
+    font-size: xx-large;
+    color: #2e81f4;
 }
