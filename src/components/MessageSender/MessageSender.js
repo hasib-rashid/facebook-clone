@@ -15,11 +15,21 @@ function MessageSender() {
                 <Avatar src={user_photo} />
 
                 <form>
-                    <input type="text" placeholder="Message" />
+                    <input
+                        className="mesageSender_input"
+                        type="text"
+                        placeholder="Message"
+                    />
                 </form>
             </div>
 
-            <div className="messageSender__bottom"></div>
+            <div className="messageSender__bottom">
+                <div className="messageSender__option"></div>
+
+                <div className="messageSender__option"></div>
+
+                <div className="messageSender__option"></div>
+            </div>
         </div>
     );
 }
