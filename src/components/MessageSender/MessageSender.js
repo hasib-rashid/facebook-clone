@@ -1,11 +1,25 @@
 import React from "react";
+import { Avatar } from "@material-ui/core";
+import { useAuthState } from "react-firebase-hooks/auth";
+import "../../firebase";
+import { auth } from "../../firebase";
 
 function MessageSender() {
+    const [user] = useAuthState(auth);
+
+    const user_photo = user.photoURL;
+
     return (
         <div className="MessageSender">
-            <div className="message-sender__top"></div>
+            <div className="messageSender__top">
+                <Avatar src={user_photo} />
 
-            <div className="message-sender__bottom"></div>
+                <form>
+                    <input type="text" placeholder="Message" />
+                </form>
+            </div>
+
+            <div className="messageSender__bottom"></div>
         </div>
     );
 }

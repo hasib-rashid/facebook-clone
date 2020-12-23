@@ -1,7 +1,8 @@
-import React from 'react';
-import './FrontPage.css';
+import React from "react";
+import "./FrontPage.css";
 import Header from "../Header/Header";
-import Sidebar from '../Sidebar/Sidebar';
+import Sidebar from "../Sidebar/Sidebar";
+import MessageSender from "../MessageSender/MessageSender";
 
 function FrontPage() {
     return (
@@ -10,9 +11,10 @@ function FrontPage() {
 
             <div className="frontpage__body">
                 <Sidebar />
+                <MessageSender />
             </div>
         </div>
-    )
+    );
 }
 
-export default FrontPage
+export default FrontPage;
