@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import "./MessageSender.css";
 import { Avatar } from "@material-ui/core";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "../../firebase";
@@ -12,6 +13,14 @@ function MessageSender() {
 
     const user_photo = user.photoURL;
 
+    const [input, setInput] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        setInput("");
+    };
+
     return (
         <div className="MessageSender">
             <div className="messageSender__top">
@@ -19,27 +28,33 @@ function MessageSender() {
 
                 <form>
                     <input
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
                         className="mesageSender_input"
                         type="text"
                         placeholder="Message"
                     />
+
+                    <button onClick={handleSubmit} type="submit">
+                        Send
+                    </button>
                 </form>
             </div>
 
             <div className="messageSender__bottom">
                 <div className="messageSender__option">
                     <VideocamIcon style={{ color: "crimson" }} />
-                    <h3>Live Video</h3>
+                    <h4>Live Video</h4>
                 </div>
 
                 <div className="messageSender__option">
                     <PhotoLibraryIcon style={{ color: "green" }} />
-                    <h3>Photo / Video</h3>
+                    <h4>Photo / Video</h4>
                 </div>
 
                 <div className="messageSender__option">
                     <MoodIcon style={{ color: "#ffe700" }} />
-                    <h3>Feeling / Activity</h3>
+                    <h4>Feeling / Activity</h4>
                 </div>
             </div>
         </div>

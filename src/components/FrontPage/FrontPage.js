@@ -3,6 +3,7 @@ import "./FrontPage.css";
 import Header from "../Header/Header";
 import Sidebar from "../Sidebar/Sidebar";
 import MessageSender from "../MessageSender/MessageSender";
+import Post from "../Post/Post";
 
 function FrontPage() {
     return (
@@ -11,7 +12,10 @@ function FrontPage() {
 
             <div className="frontpage__body">
                 <Sidebar />
-                <MessageSender />
+                <div className="main__content">
+                    <MessageSender />
+                    <Post />
+                </div>
             </div>
         </div>
     );
