@@ -179,7 +179,7 @@ function DropdownMenu() {
                         leftIcon={<ExitToAppIcon />}
                         onClick={SignOut}
                     >
-                        <SignOut className="sign-out-btn" />
+                        Sign Out
                     </DropdownItem>
                 </div>
             </CSSTransition>

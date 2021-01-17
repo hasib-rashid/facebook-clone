@@ -1,6 +1,12 @@
-.frontpage__body {
+.FrontPage {
     background-color: #eff2f5;
-    height: max-content;
+    width: 100vw;
+    height: 100vh;
+}
+
+.frontpage__body {
     display: flex;
     padding-top: 10px;
+    width: 100%;
+    justify-content: space-evenly;
 }
