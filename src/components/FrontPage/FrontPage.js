@@ -16,6 +16,7 @@ function FrontPage() {
                     <MessageSender />
                     <Post />
                 </div>
+                <h1>Widgets</h1>
             </div>
         </div>
     );

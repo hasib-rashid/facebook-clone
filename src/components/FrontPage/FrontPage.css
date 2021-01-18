@@ -7,6 +7,6 @@
 .frontpage__body {
     display: flex;
     padding-top: 10px;
-    width: 100%;
-    justify-content: space-evenly;
+    width: 100vw;
+    justify-content: space-around;
 }

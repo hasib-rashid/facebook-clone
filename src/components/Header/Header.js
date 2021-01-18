@@ -6,15 +6,13 @@ import { ReactComponent as CogIcon } from "./icons/cog.svg";
 import { ReactComponent as ChevronIcon } from "./icons/chevron.svg";
 import { ReactComponent as ArrowIcon } from "./icons/arrow.svg";
 import { ReactComponent as BoltIcon } from "./icons/bolt.svg";
-import AddIcon from "@material-ui/icons/Add";
+import { ReactComponent as AddIcon } from "./icons/plusicon.svg";
 import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
-import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import { Avatar } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-import HomeIcon from "@material-ui/icons/Home";
-import PeopleOutlineIcon from "@material-ui/icons/PeopleOutline";
-import SupervisedUserCircleRoundedIcon from "@material-ui/icons/SupervisedUserCircleRounded";
-import DehazeRoundedIcon from "@material-ui/icons/DehazeRounded";
+import { ReactComponent as HomeIcon } from "./icons/home.svg";
+import { ReactComponent as PeopleOutlineIcon } from "./icons/friends.svg";
+import { ReactComponent as SupervisedUserCircleRoundedIcon } from "./icons/groups.svg";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import SignOut from "../SignOut/SignOut";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -45,33 +43,30 @@ function Header() {
 
             <div className="header__middle">
                 <div className="header__component active">
-                    <HomeIcon fontSize="large" />
+                    <HomeIcon />
+                    <span></span>
                 </div>
 
                 <div className="header__component">
-                    <PeopleOutlineIcon fontSize="large" />
+                    <PeopleOutlineIcon />
                 </div>
 
                 <div className="header__component">
-                    <SupervisedUserCircleRoundedIcon fontSize="large" />
-                </div>
-
-                <div className="header__component">
-                    <DehazeRoundedIcon fontSize="large" />
+                    <SupervisedUserCircleRoundedIcon />
                 </div>
             </div>
 
             <div className="header__right">
-                <div className="header__info">
-                    <Avatar src={user_photo} className="avatar" />
-                </div>
-
                 <Navbar>
-                    <NavItem icon={<AddIcon />} />
+                    <NavItem icon={<AddIcon />} className="addicon" />
                     <NavItem icon={<NotificationsActiveIcon />} />
                     <NavItem icon={<MessengerIcon />} />
 
-                    <NavItem icon={<ArrowDropDownIcon />}>
+                    <NavItem
+                        icon={
+                            <Avatar src={user_photo} className="nav_avatar" />
+                        }
+                    >
                         <DropdownMenu></DropdownMenu>
                     </NavItem>
                 </Navbar>
@@ -167,6 +162,11 @@ function DropdownMenu() {
                     >
                         Settings
                     </DropdownItem>
+
+                    <DropdownItem leftIcon={<ExitToAppIcon />}>
+                        <SignOut />
+                    </DropdownItem>
+
                     <DropdownItem
                         leftIcon="🦧"
                         rightIcon={<ChevronIcon />}
@@ -175,12 +175,7 @@ function DropdownMenu() {
                         Animals
                     </DropdownItem>
 
-                    <DropdownItem
-                        leftIcon={<ExitToAppIcon />}
-                        onClick={SignOut}
-                    >
-                        Sign Out
-                    </DropdownItem>
+                    <p>Facebook 2021 License @Copyright</p>
                 </div>
             </CSSTransition>
 
