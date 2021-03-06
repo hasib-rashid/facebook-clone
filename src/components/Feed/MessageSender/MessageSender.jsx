@@ -1,46 +1,57 @@
+import { Avatar } from "@material-ui/core";
 import React, { useState } from "react";
 import "./MessageSender.css";
-import { Avatar } from "@material-ui/core";
-import { useAuthState } from "react-firebase-hooks/auth";
-import "../../firebase";
-import { auth } from "../../firebase";
 import VideocamIcon from "@material-ui/icons/Videocam";
-import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import MoodIcon from "@material-ui/icons/Mood";
+import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
+import { useStateValue } from "../../../StateProvider";
+import db from "../../../firebase";
+import firebase from "firebase";
 
 function MessageSender() {
-    const [user] = useAuthState(auth);
-
-    const user_photo = user.photoURL;
-
+    // eslint-disable-next-line
+    const [{ user }, dispatch] = useStateValue();
     const [input, setInput] = useState("");
+    const [inputURL, setInputURL] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        db.collection("posts").add({
+            message: input,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            profilePic: user.photoURL,
+            username: user.displayName,
+            image: inputURL,
+        });
+
         setInput("");
+        setInputURL("");
     };
 
     return (
         <div className="MessageSender">
             <div className="messageSender__top">
-                <Avatar src={user_photo} />
-
+                <Avatar src={user.photoURL} />
                 <form>
                     <input
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
-                        className="mesageSender_input"
                         type="text"
-                        placeholder="Message"
+                        className="messageSender__input"
+                        placeholder={`Message`}
                     />
-
+                    <input
+                        value={inputURL}
+                        onChange={(e) => setInputURL(e.target.value)}
+                        type="text"
+                        placeholder="Image URL (Optional)"
+                    />
                     <button onClick={handleSubmit} type="submit">
-                        Send
+                        Hidden Button
                     </button>
                 </form>
             </div>
-
             <div className="messageSender__bottom">
                 <div className="messageSender__option">
                     <VideocamIcon style={{ color: "crimson" }} />

@@ -1,23 +1,25 @@
+import { Avatar } from "@material-ui/core";
 import React from "react";
 import "./Post.css";
-import { Avatar } from "@material-ui/core";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 import NearMeIcon from "@material-ui/icons/NearMe";
 
-function Post() {
+function Post({ profilePic, image, username, timestamp, message }) {
     return (
         <div className="Post">
             <div className="post__top">
-                <Avatar src="" className="post__avatar" />
+                <Avatar src={profilePic} className="post__avatar" />
                 <div className="post__topInfo">
-                    <h3>Username</h3>
-                    <p>Date and Timestamp</p>
+                    <h3>{username}</h3>
+                    <p>{new Date(timestamp?.toDate()).toUTCString()}</p>
                 </div>
             </div>
-
             <div className="post__bottom">
-                <p>Hello this is the Message</p>
+                <p>{message}</p>
+            </div>
+            <div className="post__image">
+                <img src={image} alt="" />
             </div>
 
             <div className="post__options">

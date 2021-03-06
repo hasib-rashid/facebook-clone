@@ -1,15 +1,30 @@
 import React from "react";
 import "./App.css";
-import { useAuthState } from "react-firebase-hooks/auth";
-import "./firebase";
-import { auth } from "./firebase";
-import SignIn from "./components/SignIn/SignIn";
-import FrontPage from "./components/FrontPage/FrontPage";
+import Feed from "./components/Feed/Feed";
+import Header from "./components/Header/Header";
+import Login from "./components/Login/Login";
+import Sidebar from "./components/Sidebar/Sidebar";
+import { useStateValue } from "./StateProvider";
 
 function App() {
-    const [user] = useAuthState(auth);
+    // eslint-disable-next-line
+    const [{ user }, dispatch] = useStateValue();
 
-    return <div className="App">{user ? <FrontPage /> : <SignIn />}</div>;
+    return (
+        <div className="app">
+            {!user ? (
+                <Login />
+            ) : (
+                <>
+                    <Header />
+                    <div className="app__body">
+                        <Sidebar />
+                        <Feed />
+                    </div>
+                </>
+            )}
+        </div>
+    );
 }
 
 export default App;

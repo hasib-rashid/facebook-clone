@@ -94,6 +94,10 @@ a {
     border-radius: 0;
 }
 
+.privacy_policy {
+    margin-top: 400px;
+}
+
 /** ul component type thingy idk */
 
 .navbar-nav {
@@ -160,13 +164,13 @@ a {
 
 .dropdown {
     position: absolute;
-    top: 58px;
+    top: 68px;
     width: 300px;
     transform: translateX(-45%);
-    background-color: #eff2f5;
-    border: 1px solid #dad6d6;
+    background-color: #fff;
+    border: 1px solid #eff2f5;
     border-radius: 8px;
-    margin-top: 10px;
+    padding: 0rem;
     overflow: hidden;
     transition: height 500ms ease;
 }
@@ -180,7 +184,7 @@ a {
     display: flex;
     align-items: center;
     border-radius: 8px;
-    transition: background 500ms;
+    transition: background #fff;
     padding: 0.5rem;
 }
 
@@ -188,12 +192,18 @@ a {
     margin-right: 0.5rem;
 }
 
+.menu_divider {
+    height: 1px;
+    background-color: #d3d8db;
+    border: none;
+}
+
 .menu-item .icon-button:hover {
     filter: none;
 }
 
 .menu-item:hover {
-    background-color: #dbdbdb;
+    background-color: #eff2f5;
 }
 
 .icon-right {
