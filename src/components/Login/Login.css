@@ -1,27 +1,30 @@
 .login {
-  display: grid;
-  place-items: center;
-  height: 100vh;
+    display: grid;
+    place-items: center;
+    height: 100vh;
 }
 
-.login > button {
-  width: 300px;
-  background-color: #2e81f4;
-
-  color: #eff2f5;
-  font-weight: 800;
+.login button {
+    width: 300px;
+    background-color: #2e81f4;
+    color: #eff2f5;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 5px 20px;
+    border: 0;
+    outline: 0;
+    border-radius: 15px;
 }
 
-login > button:hover {
-  background-color: #fff;
-  color: #2e81f4;
+.Logo button:hover {
+    cursor: pointer;
 }
 
-.login > div > img {
-  object-fit: contain;
-  height: 150px;
+.login div img {
+    object-fit: contain;
+    height: 150px;
 }
-.login > div {
-  display: flex;
-  flex-direction: column;
+.login div {
+    display: flex;
+    flex-direction: column;
 }
